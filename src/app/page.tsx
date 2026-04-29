@@ -1,65 +1,357 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import {
+  Vote,
+  Shield,
+  MapPin,
+  MessageCircle,
+  Brain,
+  Mic,
+  ChevronRight,
+  Sparkles,
+  Users,
+  CalendarDays,
+  Globe,
+  ArrowRight,
+} from "lucide-react";
+
+const FEATURES = [
+  {
+    icon: MessageCircle,
+    title: "AI Chat Assistant",
+    description: "Ask anything about elections. Get accurate, sourced answers in your language.",
+    gradient: "linear-gradient(135deg, #f97316, #f59e0b)",
+  },
+  {
+    icon: Brain,
+    title: "Election Quiz",
+    description: "Test and build your election knowledge with AI-generated quizzes.",
+    gradient: "linear-gradient(135deg, #22d3ee, #3b82f6)",
+  },
+  {
+    icon: Shield,
+    title: "Myth Buster",
+    description: "Separate fact from fiction. Counter election misinformation instantly.",
+    gradient: "linear-gradient(135deg, #34d399, #16a34a)",
+  },
+  {
+    icon: MapPin,
+    title: "Polling Locator",
+    description: "Find your nearest polling station with directions on Google Maps.",
+    gradient: "linear-gradient(135deg, #a78bfa, #9333ea)",
+  },
+  {
+    icon: Mic,
+    title: "Voice-First",
+    description: "Speak your questions. Hear the answers. Fully accessible by design.",
+    gradient: "linear-gradient(135deg, #fb7185, #db2777)",
+  },
+  {
+    icon: CalendarDays,
+    title: "Calendar Sync",
+    description: "Never miss election day. Add deadlines directly to your Google Calendar.",
+    gradient: "linear-gradient(135deg, #facc15, #f97316)",
+  },
+];
+
+const STATS = [
+  { value: "950M+", label: "Eligible Voters" },
+  { value: "10L+", label: "Polling Stations" },
+  { value: "543", label: "Lok Sabha Seats" },
+  { value: "28+8", label: "States & UTs" },
+];
+
+const HOW_IT_WORKS = [
+  { step: "01", title: "Tell Us About You", desc: "Your state, age, and registration status — that's all we need.", icon: Users },
+  { step: "02", title: "Get Your Dashboard", desc: "See exactly what you need to do based on your situation and the election timeline.", icon: Sparkles },
+  { step: "03", title: "Ask, Learn, Act", desc: "Chat with AI, take quizzes, find your polling station, and add dates to your calendar.", icon: Globe },
+];
+
+export default function LandingPage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* Navigation */}
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 50, padding: "12px 16px" }}>
+        <div className="glass" style={{ maxWidth: 1200, margin: "0 auto", padding: "12px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Link href="/" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none", color: "inherit" }}>
+            <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg, #f97316, #fbbf24)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Vote style={{ width: 20, height: 20, color: "#0b0f1a" }} />
+            </div>
+            <span style={{ fontFamily: "var(--font-display), Outfit, sans-serif", fontWeight: 700, fontSize: 18 }}>
+              Matdaan <span className="gradient-text">Mitra</span>
+            </span>
+          </Link>
+
+          <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+            <Link href="#features" style={{ color: "var(--muted-fg)", textDecoration: "none", fontSize: 14, display: "none" }} className="md:!inline">
+              Features
+            </Link>
+            <Link href="#how-it-works" style={{ color: "var(--muted-fg)", textDecoration: "none", fontSize: 14, display: "none" }} className="md:!inline">
+              How It Works
+            </Link>
+            <Link href="/onboarding" className="btn-primary" style={{ padding: "8px 20px", fontSize: 14 }}>
+              Get Started <ArrowRight style={{ width: 16, height: 16 }} />
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+      </nav>
+
+      <main id="main-content">
+        {/* Hero Section */}
+        <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "100px 24px 60px", position: "relative", overflow: "hidden" }}>
+          {/* Background effects */}
+          <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }} aria-hidden="true">
+            <div style={{ position: "absolute", top: "25%", left: "25%", width: 400, height: 400, background: "rgba(249,115,22,0.08)", borderRadius: "50%", filter: "blur(80px)" }} />
+            <div style={{ position: "absolute", bottom: "25%", right: "25%", width: 400, height: 400, background: "rgba(6,182,212,0.06)", borderRadius: "50%", filter: "blur(80px)" }} />
+          </div>
+
+          <div style={{ position: "relative", zIndex: 10, maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+            {/* Badge */}
+            <div
+              className="glass"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "8px 20px",
+                borderRadius: 999,
+                fontSize: 14,
+                marginBottom: 40,
+                opacity: mounted ? 1 : 0,
+                transform: mounted ? "translateY(0)" : "translateY(16px)",
+                transition: "all 0.7s",
+              }}
+            >
+              <Sparkles style={{ width: 16, height: 16, color: "#f97316" }} />
+              <span style={{ color: "var(--muted-fg)" }}>Powered by Google Gemini AI</span>
+            </div>
+
+            {/* Headline */}
+            <h1
+              style={{
+                fontFamily: "var(--font-display), Outfit, sans-serif",
+                fontSize: "clamp(36px, 7vw, 72px)",
+                fontWeight: 800,
+                lineHeight: 1.1,
+                marginBottom: 24,
+                opacity: mounted ? 1 : 0,
+                transform: mounted ? "translateY(0)" : "translateY(16px)",
+                transition: "all 0.7s 0.1s",
+              }}
+            >
+              Your Vote.<br />
+              <span className="gradient-text">Your Voice.</span><br />
+              Your Guide.
+            </h1>
+
+            {/* Subtitle */}
+            <p
+              style={{
+                fontSize: "clamp(15px, 2.5vw, 20px)",
+                color: "var(--muted-fg)",
+                maxWidth: 600,
+                margin: "0 auto 48px",
+                lineHeight: 1.6,
+                opacity: mounted ? 1 : 0,
+                transform: mounted ? "translateY(0)" : "translateY(16px)",
+                transition: "all 0.7s 0.2s",
+              }}
+            >
+              Matdaan Mitra is your AI-powered election companion — personalized
+              guidance on eligibility, registration, polling, and your rights as
+              an Indian voter.
+            </p>
+
+            {/* CTAs */}
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 16,
+                marginBottom: 64,
+                opacity: mounted ? 1 : 0,
+                transform: mounted ? "translateY(0)" : "translateY(16px)",
+                transition: "all 0.7s 0.3s",
+              }}
+            >
+              <Link href="/onboarding" className="btn-primary" style={{ padding: "16px 36px", fontSize: 16 }}>
+                Start Your Journey
+                <ChevronRight style={{ width: 20, height: 20 }} />
+              </Link>
+              <Link href="/chat" className="btn-secondary" style={{ padding: "16px 36px", fontSize: 16 }}>
+                <MessageCircle style={{ width: 20, height: 20 }} />
+                Ask a Question
+              </Link>
+            </div>
+
+            {/* Stats bar */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: 16,
+                maxWidth: 640,
+                margin: "0 auto",
+                opacity: mounted ? 1 : 0,
+                transform: mounted ? "translateY(0)" : "translateY(16px)",
+                transition: "all 0.7s 0.4s",
+              }}
+            >
+              {STATS.map((stat) => (
+                <div key={stat.label} className="glass" style={{ padding: "20px 12px", textAlign: "center" }}>
+                  <div className="gradient-text" style={{ fontFamily: "var(--font-display), Outfit, sans-serif", fontSize: "clamp(20px, 3vw, 30px)", fontWeight: 700 }}>
+                    {stat.value}
+                  </div>
+                  <div style={{ fontSize: 12, color: "var(--muted-fg)", marginTop: 4 }}>
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" style={{ padding: "80px 24px" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: 56 }}>
+              <h2 style={{ fontFamily: "var(--font-display), Outfit, sans-serif", fontSize: "clamp(24px, 4vw, 40px)", fontWeight: 700, marginBottom: 16 }}>
+                Everything You Need to <span className="gradient-text">Vote Confidently</span>
+              </h2>
+              <p style={{ color: "var(--muted-fg)", maxWidth: 520, margin: "0 auto", fontSize: 15 }}>
+                From registration to results — Matdaan Mitra guides you through
+                every step with AI-powered, sourced information.
+              </p>
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 24 }}>
+              {FEATURES.map((feature) => (
+                <div
+                  key={feature.title}
+                  className="glass glass-hover"
+                  style={{ padding: "28px 24px" }}
+                >
+                  <div
+                    style={{
+                      width: 52,
+                      height: 52,
+                      borderRadius: 14,
+                      background: feature.gradient,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginBottom: 20,
+                    }}
+                  >
+                    <feature.icon style={{ width: 26, height: 26, color: "white" }} />
+                  </div>
+                  <h3 style={{ fontWeight: 600, fontSize: 18, marginBottom: 8 }}>{feature.title}</h3>
+                  <p style={{ color: "var(--muted-fg)", fontSize: 14, lineHeight: 1.6 }}>
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works */}
+        <section id="how-it-works" style={{ padding: "80px 24px" }}>
+          <div style={{ maxWidth: 720, margin: "0 auto" }}>
+            <div style={{ textAlign: "center", marginBottom: 56 }}>
+              <h2 style={{ fontFamily: "var(--font-display), Outfit, sans-serif", fontSize: "clamp(24px, 4vw, 40px)", fontWeight: 700 }}>
+                Get Started in <span className="gradient-text-accent">30 Seconds</span>
+              </h2>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+              {HOW_IT_WORKS.map((item) => (
+                <div
+                  key={item.step}
+                  className="glass glass-hover"
+                  style={{ padding: "28px 28px", display: "flex", alignItems: "center", gap: 24 }}
+                >
+                  <div style={{
+                    flexShrink: 0,
+                    width: 56,
+                    height: 56,
+                    borderRadius: 16,
+                    background: "linear-gradient(135deg, rgba(249,115,22,0.15), rgba(251,191,36,0.15))",
+                    border: "1px solid rgba(249,115,22,0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontFamily: "var(--font-display), Outfit, sans-serif",
+                    fontWeight: 700,
+                    fontSize: 20,
+                    color: "#f97316",
+                  }}>
+                    {item.step}
+                  </div>
+                  <div style={{ minWidth: 0 }}>
+                    <h3 style={{ fontWeight: 600, fontSize: 18, marginBottom: 4, display: "flex", alignItems: "center", gap: 8 }}>
+                      <item.icon style={{ width: 20, height: 20, color: "#f97316", flexShrink: 0 }} />
+                      {item.title}
+                    </h3>
+                    <p style={{ color: "var(--muted-fg)", fontSize: 14, lineHeight: 1.5 }}>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section style={{ padding: "80px 24px" }}>
+          <div className="glass" style={{ maxWidth: 680, margin: "0 auto", textAlign: "center", padding: "56px 40px", position: "relative", overflow: "hidden" }}>
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(249,115,22,0.08), rgba(6,182,212,0.04))", pointerEvents: "none" }} />
+            <div style={{ position: "relative", zIndex: 10 }}>
+              <h2 style={{ fontFamily: "var(--font-display), Outfit, sans-serif", fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 700, marginBottom: 16 }}>
+                Ready to Be an Informed Voter?
+              </h2>
+              <p style={{ color: "var(--muted-fg)", marginBottom: 32, maxWidth: 480, margin: "0 auto 32px", fontSize: 15 }}>
+                Your democracy needs you. Let Matdaan Mitra guide you through
+                every step — from registration to results.
+              </p>
+              <Link href="/onboarding" className="btn-primary" style={{ padding: "16px 44px", fontSize: 16 }}>
+                Begin Now <ArrowRight style={{ width: 20, height: 20 }} />
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
-    </div>
+
+      {/* Footer */}
+      <footer style={{ borderTop: "1px solid rgba(255,255,255,0.08)", padding: "32px 24px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "16px 32px", fontSize: 14, color: "var(--muted-fg)", textAlign: "center" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <Vote style={{ width: 16, height: 16, color: "#f97316" }} />
+            <span>Matdaan Mitra © {new Date().getFullYear()}</span>
+          </div>
+          <p>
+            Source:{" "}
+            <a href="https://eci.gov.in" target="_blank" rel="noopener noreferrer" style={{ color: "#22d3ee", textDecoration: "none" }}>
+              eci.gov.in
+            </a>
+            {" "}· Educational tool, not an official ECI service.
+          </p>
+          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <Link href="/chat" style={{ color: "var(--muted-fg)", textDecoration: "none" }}>Chat</Link>
+            <Link href="/quiz" style={{ color: "var(--muted-fg)", textDecoration: "none" }}>Quiz</Link>
+            <Link href="/myths" style={{ color: "var(--muted-fg)", textDecoration: "none" }}>Myths</Link>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }

@@ -1,0 +1,107 @@
+[
+  {
+    "id": "myth-1",
+    "myth": "EVMs can be hacked or manipulated remotely.",
+    "fact": "EVMs are standalone devices with NO network connectivity — no Wi-Fi, no Bluetooth, no internet. They are manufactured by Bharat Electronics Limited (BEL) and Electronics Corporation of India Limited (ECIL) under strict security protocols. The software is burned into a one-time programmable chip.",
+    "source": "Election Commission of India — eci.gov.in",
+    "category": "EVM"
+  },
+  {
+    "id": "myth-2",
+    "myth": "Your vote is not secret — someone can find out who you voted for.",
+    "fact": "The secrecy of your vote is protected by law (Section 128, RPA 1951). No one, including government authorities, can compel you to reveal your vote. Violating vote secrecy is a criminal offense.",
+    "source": "Representation of the People Act, 1951",
+    "category": "Rights"
+  },
+  {
+    "id": "myth-3",
+    "myth": "If NOTA gets the most votes, elections will be held again.",
+    "fact": "Currently, even if NOTA receives the highest number of votes, the candidate with the next highest votes wins. NOTA votes are counted but do not affect the election result.",
+    "source": "Supreme Court of India, PUCL vs Union of India (2013)",
+    "category": "NOTA"
+  },
+  {
+    "id": "myth-4",
+    "myth": "You need your Voter ID (EPIC) to vote — no other ID works.",
+    "fact": "While EPIC is preferred, you can use any of 12 alternative photo IDs including Aadhaar, Passport, Driving License, PAN Card, and others approved by the ECI.",
+    "source": "Election Commission of India",
+    "category": "Voting"
+  },
+  {
+    "id": "myth-5",
+    "myth": "NRIs cannot vote in Indian elections.",
+    "fact": "NRIs CAN vote! Since 2011, NRIs with valid Indian passports can register as overseas voters. They need to be present at their registered polling station on election day. The ECI has also been working on e-postal ballots for NRIs.",
+    "source": "Representation of the People (Amendment) Act, 2010",
+    "category": "Registration"
+  },
+  {
+    "id": "myth-6",
+    "myth": "Once you register to vote, you're registered for life.",
+    "fact": "Your registration can lapse if you move to a different constituency. You must re-register in your new constituency using Form 6. Your old registration should be cancelled using Form 7.",
+    "source": "National Voter Service Portal — nvsp.in",
+    "category": "Registration"
+  },
+  {
+    "id": "myth-7",
+    "myth": "If you reach the polling station after 6 PM, you won't be allowed to vote.",
+    "fact": "If you are standing in the queue at the time of official closing (typically 6 PM), you WILL be allowed to vote. The Presiding Officer will give token slips to everyone in the queue at closing time.",
+    "source": "Election Commission of India",
+    "category": "Voting"
+  },
+  {
+    "id": "myth-8",
+    "myth": "You can vote from anywhere using your Voter ID.",
+    "fact": "You can ONLY vote at the specific polling station assigned to your address on the Electoral Roll. You cannot vote at a different station even within the same constituency.",
+    "source": "Election Commission of India",
+    "category": "Voting"
+  },
+  {
+    "id": "myth-9",
+    "myth": "Campaigning is allowed right up until polling day.",
+    "fact": "All campaigning must stop 48 hours before the polling date and time in that constituency. This is called the 'silence period'. No rallies, advertisements, or door-to-door campaigning is allowed.",
+    "source": "Model Code of Conduct, ECI",
+    "category": "Campaigning"
+  },
+  {
+    "id": "myth-10",
+    "myth": "Election results can be manipulated during counting.",
+    "fact": "Counting happens under multi-layered security: CCTV surveillance, presence of candidates' counting agents, observers appointed by ECI, and VVPAT verification of 5 random booths per constituency.",
+    "source": "Election Commission of India",
+    "category": "Counting"
+  },
+  {
+    "id": "myth-11",
+    "myth": "Persons with disabilities cannot vote.",
+    "fact": "The ECI ensures PWD-friendly polling stations with ramps, wheelchairs, and Braille EVMs. PWD voters can bring a companion, and those with 40%+ disability can apply for postal ballots.",
+    "source": "Election Commission of India — Accessible Elections",
+    "category": "Accessibility"
+  },
+  {
+    "id": "myth-12",
+    "myth": "You can take a selfie with the EVM to prove who you voted for.",
+    "fact": "Taking photos or videos inside the voting compartment is STRICTLY PROHIBITED. Mobile phones should not be used inside the voting area. Violators can be prosecuted.",
+    "source": "Section 128, RPA 1951",
+    "category": "Voting"
+  },
+  {
+    "id": "myth-13",
+    "myth": "Booth capturing still happens frequently in Indian elections.",
+    "fact": "Booth capturing has become extremely rare due to EVMs (which have a maximum vote-per-minute limit), CCTV cameras, micro-observers, central paramilitary forces, and the cVIGIL app for instant reporting.",
+    "source": "Election Commission of India",
+    "category": "Security"
+  },
+  {
+    "id": "myth-14",
+    "myth": "You must be 21 to vote in India.",
+    "fact": "The voting age in India is 18 years. This was reduced from 21 to 18 by the 61st Amendment to the Constitution in 1988.",
+    "source": "Constitution of India, Article 326",
+    "category": "Registration"
+  },
+  {
+    "id": "myth-15",
+    "myth": "Candidates can spend unlimited money on their election campaign.",
+    "fact": "The ECI sets strict spending limits: ₹95 lakh for Lok Sabha candidates and ₹40 lakh for State Assembly candidates. All expenditure must be documented and submitted to the ECI.",
+    "source": "Election Commission of India",
+    "category": "Campaigning"
+  }
+]
