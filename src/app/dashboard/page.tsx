@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import type { UserProfile, ElectionPhase, ActionCard } from "@/types";
 import { getActions, getPhaseInfo } from "@/lib/decisionEngine";
+import GoogleLogin from "@/components/GoogleLogin";
 
 const ICON_MAP: Record<string, React.ElementType> = {
   sparkles: Sparkles,
@@ -168,9 +169,10 @@ export default function DashboardPage() {
           <div className="glass" style={{ marginTop: "auto", padding: 16, fontSize: 14 }}>
             <div style={{ color: "var(--muted-fg)", fontSize: 12, marginBottom: 4 }}>Your Profile</div>
             <div style={{ fontWeight: 500 }}>{profile.state}</div>
-            <div style={{ color: "var(--muted-fg)" }}>
+            <div style={{ color: "var(--muted-fg)", marginBottom: 12 }}>
               Age {profile.age} · {profile.voterStatus.replace(/_/g, " ")}
             </div>
+            <GoogleLogin />
           </div>
         </aside>
 

@@ -1,5 +1,5 @@
 import { getActions, getPhaseInfo } from '@/lib/decisionEngine';
-import { UserProfile, ElectionPhase } from '@/types';
+import { UserProfile } from '@/types';
 
 describe('decisionEngine', () => {
   const baseProfile: UserProfile = {

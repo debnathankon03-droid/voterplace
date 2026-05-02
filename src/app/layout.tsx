@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -57,6 +58,7 @@ export default function RootLayout({
         </a>
         <div className="tricolor-bar" aria-hidden="true" />
         {children}
+        <GoogleAnalytics gaId="G-XYZ123ABC" />
       </body>
     </html>
   );
