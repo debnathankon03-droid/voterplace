@@ -5,6 +5,11 @@
 // prioritized ActionCards. No side effects, fully unit-testable.
 // ============================================================
 
+/**
+ * Decision Engine Module
+ * Calculates user-specific election actions, priorities, and UI configurations
+ * based on the user's profile and the current real-world election phase.
+ */
 import { ActionCard, ElectionPhase, UserProfile } from '@/types';
 
 /**

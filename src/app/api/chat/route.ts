@@ -21,10 +21,18 @@ function isRateLimited(ip: string): boolean {
   return entry.count > RATE_LIMIT_MAX;
 }
 
-export async function POST(request: NextRequest) {
+/**
+ * POST handler for the chat interface.
+ * Connects to the Gemini AI to stream conversational responses back
+ * to the client based on user context and knowledge base documents.
+ * 
+ * @param req - NextRequest object containing user message and context.
+ * @returns StreamingTextResponse with the AI's answer.
+ */
+export async function POST(req: NextRequest) {
   try {
     // Rate limit by IP
-    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'anonymous';
+    const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || 'anonymous';
     if (isRateLimited(ip)) {
       return NextResponse.json(
         { error: 'Too many requests. Please wait a moment before trying again.' },

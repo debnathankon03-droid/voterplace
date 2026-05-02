@@ -18,6 +18,10 @@ import type { MythFact } from "@/types";
 const myths = mythsData as MythFact[];
 const categories = [...new Set(myths.map((m) => m.category))];
 
+/**
+ * MythsPage presents common election myths versus facts in a card-based UI,
+ * allowing users to search and learn about electoral realities.
+ */
 export default function MythsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);

@@ -2,6 +2,11 @@
 // Gemini AI Integration — Server-side only
 // ============================================================
 
+/**
+ * Gemini AI Integration Module
+ * Wraps the Google Generative AI SDK, configuring models for structured
+ * responses (like JSON for quizzes) and streaming responses (for chat).
+ */
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');

@@ -13,6 +13,10 @@ import {
   Search,
 } from "lucide-react";
 
+/**
+ * LocatorPage provides an embedded Google Maps view to help the user
+ * find their nearest polling booth.
+ */
 export default function LocatorPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

@@ -17,6 +17,11 @@ import { INDIAN_STATES, type VoterStatus, type SupportedLanguage } from "@/types
 
 const STEPS = ["Location", "Age & Status", "Language"];
 
+/**
+ * OnboardingPage collects initial demographic data from the user
+ * (e.g., age, state, language, registration status) to build a localized
+ * and tailored election guidance profile.
+ */
 export default function OnboardingPage() {
   const router = useRouter();
   const [step, setStep] = useState(0);

@@ -18,6 +18,10 @@ import {
 } from "lucide-react";
 import { INDIAN_STATES, type SupportedLanguage } from "@/types";
 
+/**
+ * SettingsPage allows users to modify their preferences, profile data,
+ * accessibility settings (like high-contrast mode), and wipe stored data.
+ */
 export default function SettingsPage() {
   const router = useRouter();
   const [profile, setProfile] = useState<Record<string, unknown> | null>(null);

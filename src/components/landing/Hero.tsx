@@ -9,6 +9,10 @@ const STATS = [
   { value: "28+8", label: "States & UTs" },
 ];
 
+/**
+ * Hero component for the landing page.
+ * Displays the main value proposition, key stats, and call-to-actions.
+ */
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
 

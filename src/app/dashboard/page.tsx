@@ -72,6 +72,11 @@ const SIDEBAR_LINKS = [
   { href: "/locator", icon: MapPin, label: "Find Polling Station" },
 ];
 
+/**
+ * DashboardPage serves as the central hub for the user after onboarding.
+ * It dynamically displays personalized action cards and timeline info
+ * based on the user's demographic profile and the current election phase.
+ */
 export default function DashboardPage() {
   const router = useRouter();
   const [profile, setProfile] = useState<UserProfile | null>(null);

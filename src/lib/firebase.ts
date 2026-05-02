@@ -2,6 +2,10 @@
 // Firebase Configuration — Client SDK
 // ============================================================
 
+/**
+ * Firebase Client Configuration
+ * Initializes the Firebase app and exports services (Auth, DB) for use in components.
+ */
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';

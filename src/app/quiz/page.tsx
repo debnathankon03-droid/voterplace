@@ -27,6 +27,10 @@ const DIFFICULTY_CONFIG: Record<Difficulty, { label: string; color: string; icon
   advanced: { label: "Advanced", color: "text-red-400", icon: Brain },
 };
 
+/**
+ * QuizPage provides an interactive quiz interface utilizing AI-generated questions
+ * based on the user's demographic and the election phase.
+ */
 export default function QuizPage() {
   const [difficulty, setDifficulty] = useState<Difficulty | null>(null);
   const [currentQ, setCurrentQ] = useState(0);

@@ -2,6 +2,11 @@
 // Matdaan Mitra — Core Type Definitions
 // ============================================================
 
+/**
+ * Global TypeScript interfaces and types used throughout the Matdaan Mitra application.
+ * Defines the schema for Users, Actions, the Knowledge Base, and Quiz configurations.
+ */
+
 /** Voter registration status */
 export type VoterStatus = 'under_18' | 'eligible_unregistered' | 'registered' | 'unknown';
 

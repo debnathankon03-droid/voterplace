@@ -6,6 +6,10 @@ import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { auth, googleProvider, db } from '@/lib/firebase';
 import { UserProfile } from '@/types';
 
+/**
+ * GoogleLogin handles Firebase Google Sign-In and local session syncing.
+ * Includes fallback logic to bypass sign-in during development if auth fails.
+ */
 export default function GoogleLogin() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);

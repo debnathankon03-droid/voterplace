@@ -82,6 +82,14 @@ const FALLBACK_QUESTIONS = [
   },
 ];
 
+/**
+ * POST handler for generating an election quiz question.
+ * Utilizes the Gemini AI model and knowledge base retrieval (RAG)
+ * to generate questions dynamically based on difficulty and context.
+ * 
+ * @param request - NextRequest object containing difficulty, voterStatus, etc.
+ * @returns NextResponse containing the generated JSON question.
+ */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();

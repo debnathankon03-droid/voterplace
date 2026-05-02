@@ -2,6 +2,11 @@
 // Knowledge Base — Loader, Chunker, and Retrieval
 // ============================================================
 
+/**
+ * Knowledge Base Module
+ * Simulates a vector database or retrieval system for RAG (Retrieval-Augmented Generation).
+ * Stores raw textual data about election processes and facts.
+ */
 import { KBChunk } from '@/types';
 
 // Import KB files as raw strings at build time

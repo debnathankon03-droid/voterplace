@@ -35,6 +35,10 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * RootLayout defines the HTML structure for the entire application.
+ * It imports global stylesheets and configured Google Fonts.
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
