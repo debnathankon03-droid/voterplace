@@ -69,6 +69,11 @@ const HOW_IT_WORKS = [
   { step: "03", title: "Ask, Learn, Act", desc: "Chat with AI, take quizzes, find your polling station, and add dates to your calendar.", icon: Globe },
 ];
 
+/**
+ * Main landing page for Matdaan Mitra.
+ * Serves as the marketing hero and introduction to the AI Election Assistant.
+ * Fully responsive and accessible.
+ */
 export default function LandingPage() {
   const [mounted, setMounted] = useState(false);
 

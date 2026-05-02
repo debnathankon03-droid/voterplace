@@ -295,6 +295,27 @@ export default function DashboardPage() {
               })}
             </div>
 
+            {/* Voter Pledge */}
+            <div className="glass p-6 mb-8 text-center" style={{ background: "linear-gradient(135deg, rgba(34,211,238,0.1), rgba(59,130,246,0.1))", border: "1px solid rgba(34,211,238,0.2)" }}>
+              <h2 className="font-display text-xl font-bold mb-2">Take the Voter Pledge</h2>
+              <p className="text-muted-foreground text-sm mb-4">
+                "I pledge to uphold the democratic traditions of our country and the dignity of free, fair and peaceful elections, and to vote in every election fearlessly."
+              </p>
+              <button 
+                className="btn-primary" 
+                style={{ padding: "10px 24px", fontSize: 14 }}
+                onClick={(e) => {
+                  const target = e.currentTarget;
+                  target.innerText = "Pledge Taken! 🇮🇳";
+                  target.style.background = "#16a34a";
+                  target.style.borderColor = "#16a34a";
+                  target.disabled = true;
+                }}
+              >
+                I Pledge to Vote
+              </button>
+            </div>
+
             {/* Mobile Quick Links */}
             <div className="lg:hidden glass" style={{ padding: 16, marginBottom: 32 }}>
               <h3 style={{ fontWeight: 600, marginBottom: 12, fontSize: 14 }}>Quick Links</h3>
