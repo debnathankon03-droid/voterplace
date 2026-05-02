@@ -40,7 +40,7 @@
   --gradient-tricolor: linear-gradient(135deg, #ff9933 0%, #ffffff 50%, #138808 100%);
   --gradient-primary: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fbbf24 100%);
   --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #3b82f6 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
   --shadow-glow: 0 0 30px rgba(249, 115, 22, 0.15);
   --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
   --radius: 12px;
@@ -79,7 +79,9 @@ body {
 }
 
 /* ── Form elements ── */
-input, select, textarea {
+input,
+select,
+textarea {
   font-family: inherit;
   font-size: inherit;
 }
@@ -97,6 +99,7 @@ input, select, textarea {
   font-weight: 600;
   transition: top 0.2s;
 }
+
 .skip-link:focus {
   top: 8px;
 }
@@ -113,6 +116,7 @@ input, select, textarea {
 .glass-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .glass-hover:hover {
   border-color: rgba(249, 115, 22, 0.3);
   box-shadow: var(--shadow-glow);
@@ -155,10 +159,12 @@ input, select, textarea {
   white-space: nowrap;
   line-height: 1.4;
 }
+
 .btn-primary:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 32px rgba(249, 115, 22, 0.4);
 }
+
 .btn-primary:active {
   transform: translateY(0);
 }
@@ -181,6 +187,7 @@ input, select, textarea {
   white-space: nowrap;
   line-height: 1.4;
 }
+
 .btn-secondary:hover {
   border-color: var(--primary);
   color: var(--primary);
@@ -196,25 +203,47 @@ input, select, textarea {
 
 /* ── Animations ── */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(249, 115, 22, 0); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(249, 115, 22, 0);
+  }
 }
+
 .pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
+
 .float-animation {
   animation: float 4s ease-in-out infinite;
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
+
 .shimmer {
   background: linear-gradient(90deg, var(--surface) 25%, var(--surface-hover) 50%, var(--surface) 75%);
   background-size: 200% 100%;
@@ -222,17 +251,31 @@ input, select, textarea {
 }
 
 @keyframes slideInUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
 .slide-in-up {
   animation: slideInUp 0.3s ease-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
+
 .fade-in {
   animation: fadeIn 0.5s ease-out;
 }
@@ -247,13 +290,16 @@ input, select, textarea {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--border-color);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted-fg);
 }
@@ -266,6 +312,7 @@ input, select, textarea {
   align-items: center;
   flex: 1;
 }
+
 .timeline-step::after {
   content: '';
   position: absolute;
@@ -275,13 +322,16 @@ input, select, textarea {
   height: 2px;
   background: var(--border-color);
 }
+
 .timeline-step:last-child::after {
   display: none;
 }
+
 .timeline-step.active .timeline-dot {
   background: var(--primary);
   box-shadow: 0 0 12px rgba(249, 115, 22, 0.6);
 }
+
 .timeline-dot {
   width: 40px;
   height: 40px;
@@ -302,7 +352,8 @@ input, select, textarea {
   gap: 24px;
   align-items: stretch;
 }
-.card-grid > * {
+
+.card-grid>* {
   display: flex;
   flex-direction: column;
 }
@@ -313,6 +364,7 @@ input, select, textarea {
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
   .btn-primary,
   .btn-secondary {
     padding: 10px 20px;

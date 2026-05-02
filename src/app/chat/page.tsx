@@ -221,17 +221,24 @@ export default function ChatPage() {
       return;
     }
 
-     
-    const SpeechRecognitionAPI =
-      (window as unknown as { SpeechRecognition: unknown }).SpeechRecognition ||
-      (window as unknown as { webkitSpeechRecognition: unknown }).webkitSpeechRecognition;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const recognition = new (SpeechRecognitionAPI as any)() as any;
-    recognition.lang = profile?.preferredLanguage === "hi" ? "hi-IN" : profile?.preferredLanguage === "bn" ? "bn-IN" : "en-IN";
+    const win = window as any;
+    const SpeechRecognitionAPI = win.SpeechRecognition || win.webkitSpeechRecognition;
+    if (!SpeechRecognitionAPI) {
+      alert("Speech recognition is not supported in your browser. Please try Chrome or Edge.");
+      return;
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const recognition = new SpeechRecognitionAPI() as any;
     recognition.continuous = false;
     recognition.interimResults = false;
+    recognition.lang = profile?.preferredLanguage === "hi" ? "hi-IN" : profile?.preferredLanguage === "bn" ? "bn-IN" : "en-IN";
 
-    recognition.onstart = () => setIsListening(true);
+    recognition.onstart = () => {
+      setIsListening(true);
+    };
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     recognition.onresult = (event: any) => {
       const transcript = event.results[0][0].transcript;
