@@ -18,13 +18,69 @@ function isRateLimited(ip: string): boolean {
   return entry.count > RATE_LIMIT_MAX;
 }
 
-// Fallback question if Gemini fails
-const FALLBACK_QUESTION = {
-  question: "What is the minimum age to register as a voter in India?",
-  options: ["16 years", "18 years", "21 years", "25 years"],
-  correctIndex: 1,
-  explanation: "The voting age in India is 18 years, reduced from 21 by the 61st Constitutional Amendment in 1988.",
-};
+// Fallback questions pool if Gemini fails
+const FALLBACK_QUESTIONS = [
+  {
+    question: "What is the minimum age to register as a voter in India?",
+    options: ["16 years", "18 years", "21 years", "25 years"],
+    correctIndex: 1,
+    explanation: "The voting age in India is 18 years, reduced from 21 by the 61st Constitutional Amendment in 1988.",
+  },
+  {
+    question: "What does EVM stand for?",
+    options: ["Electronic Voting Machine", "Electoral Verification Method", "Electronic Vote Monitor", "Election Validation Mechanism"],
+    correctIndex: 0,
+    explanation: "EVM stands for Electronic Voting Machine, used in Indian elections since 2004 for all general and state elections.",
+  },
+  {
+    question: "What is NOTA in Indian elections?",
+    options: ["A political party", "None Of The Above option", "A type of ballot paper", "A voter registration form"],
+    correctIndex: 1,
+    explanation: "NOTA (None Of The Above) allows voters to reject all candidates. It was introduced by the Supreme Court in 2013.",
+  },
+  {
+    question: "How many Lok Sabha constituencies are there in India?",
+    options: ["435", "500", "543", "600"],
+    correctIndex: 2,
+    explanation: "India has 543 Lok Sabha constituencies. Each constituency elects one Member of Parliament (MP).",
+  },
+  {
+    question: "Which body conducts elections in India?",
+    options: ["Supreme Court", "Election Commission of India", "Parliament", "President of India"],
+    correctIndex: 1,
+    explanation: "The Election Commission of India (ECI) is an autonomous constitutional body responsible for administering elections.",
+  },
+  {
+    question: "What is VVPAT?",
+    options: ["Voter Verified Paper Audit Trail", "Valid Vote Paper Authentication Tool", "Voluntary Voting Protocol And Tracking", "Verified Vote Processing And Tabulation"],
+    correctIndex: 0,
+    explanation: "VVPAT is a machine that prints a paper slip showing which candidate the voter selected, providing an audit trail for EVMs.",
+  },
+  {
+    question: "What is the EPIC card?",
+    options: ["Election Party Identification Card", "Electors Photo Identity Card", "Electronic Poll Information Certificate", "Election Process Initiation Card"],
+    correctIndex: 1,
+    explanation: "EPIC stands for Electors Photo Identity Card, commonly known as the Voter ID card, issued by the ECI.",
+  },
+  {
+    question: "Which form is used for new voter registration in India?",
+    options: ["Form 4", "Form 6", "Form 8", "Form 10"],
+    correctIndex: 1,
+    explanation: "Form 6 is used for new voter registration or for inclusion of name in the electoral roll.",
+  },
+  {
+    question: "What is the 'Model Code of Conduct'?",
+    options: ["A law passed by Parliament", "Guidelines for parties during elections", "The Constitution of India", "Rules for counting votes"],
+    correctIndex: 1,
+    explanation: "The Model Code of Conduct is a set of guidelines issued by the ECI for political parties and candidates during elections.",
+  },
+  {
+    question: "What is the indelible ink used for in elections?",
+    options: ["Signing ballot papers", "Marking voter's finger to prevent repeat voting", "Stamping the ballot box", "Printing voter slips"],
+    correctIndex: 1,
+    explanation: "Indelible ink is applied on the voter's left index finger to prevent them from voting more than once.",
+  },
+];
 
 export async function POST(request: NextRequest) {
   try {
